@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import favicon from "./favicon.ico";
 
 export default function Home() {
   return (
@@ -17,11 +18,11 @@ export default function Home() {
           >
             By{" "}
             <Image
-              src="/vercel.svg"
+              src={favicon}
               alt="Vercel Logo"
               className="dark:invert"
-              width={100}
-              height={24}
+              // width={300}
+              // height={120}
               priority
             />
           </a>
