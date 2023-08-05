@@ -1,5 +1,5 @@
 import React, { RefObject } from "react";
-import Card from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import Nav from "react-bootstrap";
 import NavButtonInForumHeader from "./NavButtonInForumHeader";
 import SearchForm from "./SearchForm";
@@ -67,7 +67,7 @@ const ForumSection: React.FC<ForumSectionProps> = ({
   ];
 
   return (
-    <Card className="mainCard">
+    <Card className="mainCard rounded-lg shadow-md p-10 mx-20 my-20 gap-20 bg-[#4b9aaa] max-w-90vw min-w-50vw min-h-40vh overflow-auto resize-y">
       <Card.Header>
         <Nav
           variant="tabs"

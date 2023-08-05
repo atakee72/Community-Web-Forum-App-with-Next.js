@@ -1,9 +1,10 @@
 import { useContext, useRef, useState } from "react";
-import { Badge } from "react-bootstrap";
-import transformDate from "../utils/transformDate";
-import { AuthContext } from "../store/AuthContext";
-import CommentModal from "./CommentModal";
-import DeletePostButton from "./DeletePostButton";
+// import { Badge } from "react-bootstrap";
+import transformDate from "@/app/utils/transformDate";
+// import { AuthContext } from "../store/AuthContext";
+// import CommentModal from "./CommentModal";
+// import DeletePostButton from "./DeletePostButton";
+import dynamic from "next/dynamic"; // Import dynamic from next/dynamic
 
 interface CardsProps {
   post: any;
@@ -26,6 +27,10 @@ const Cards: React.FC<CardsProps> = ({
   updateLikesCounter,
   serverMsg,
 }) => {
+  const { useState } = dynamic(() => import("react"), { ssr: false });
+  const { useContext } = dynamic(() => import("react"), { ssr: false });
+  const { useRef } = dynamic(() => import("react"), { ssr: false });
+  const { useEffect } = dynamic(() => import("react"), { ssr: false });
   const [activeTab, setActiveTab] = useState("Posts");
   const commentTextRef = useRef<HTMLInputElement>(null);
   const likeRef = useRef<HTMLButtonElement>(null);

@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "react-bootstrap";
+// import { Button } from "react-bootstrap";
 
 interface AddNewPostProps {
   handleShow: () => void;
@@ -17,14 +17,14 @@ const AddNewPost: React.FC<AddNewPostProps> = ({
   };
 
   return (
-    <Button
+    <button
       className="p-3 topicBtn bg-purple-900 text-yellow-400 w-full sticky top-0 z-10"
       style={{ boxShadow: "0px 0px 10px 0px rgba(0, 0, 0, 0.2)" }}
-      variant="secondary"
+    //   variant="secondary"
       onClick={handleShow}
     >
       {collectionTypes[collectionType]}
-    </Button>
+    </button>
   );
 };
 
