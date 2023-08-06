@@ -5,7 +5,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import ForumSection from "../components/ForumSection";
 
 export const metadata: Metadata = {
-  title: "GesicheterrrrBuuuuch",
+  title: "GesichterrrrBuuuuch",
 };
 
 interface HomeProps {
