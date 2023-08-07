@@ -87,6 +87,16 @@ function Navbar(): React.JSX.Element {
                   User profile
                 </Link>
               </li>
+              <li className="bg-[#eccc6e] rounded p-1 text-[#814256da]">
+                <Link href="/blog" className="block rounded md:bg-transparent">
+                  Blog
+                </Link>
+              </li>
+              <li className="bg-[#eccc6e] rounded p-1 text-[#814256da]">
+                <Link href="/shop" className="block rounded md:bg-transparent">
+                  Shop
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

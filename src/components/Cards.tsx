@@ -1,6 +1,6 @@
 import { useContext, useRef, useState } from "react";
 // import { Badge } from "react-bootstrap";
-import transformDate from "@/app/utils/transformDate";
+import transformDate from "@/utils/transformDate";
 // import { AuthContext } from "../store/AuthContext";
 // import CommentModal from "./CommentModal";
 // import DeletePostButton from "./DeletePostButton";
