@@ -20,6 +20,10 @@ const nextConfig = {
       },
     ],
   },
+  env: {
+    MONGODB_URI: process.env.MONGODB_URI,
+    // Other environment variables...
+  },
 };
 
 module.exports = nextConfig
