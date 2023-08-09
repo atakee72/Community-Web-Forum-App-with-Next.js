@@ -6,7 +6,7 @@ const connectDB = async () => {
     if (mongoose.connection.readyState === 0) {
       const mongodbUri = process.env.MONGODB_URI as string;
       await mongoose.connect(mongodbUri);
-      console.log("Connection to Mongo DB established!");
+      console.log("Connection to MongoDB established!");
     }
   } catch (error) {
     console.log("Error connecting to MONGODB", error);
