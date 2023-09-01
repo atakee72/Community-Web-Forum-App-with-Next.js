@@ -1,4 +1,4 @@
-import userModel from "@/app/models/userModel";
+import userModel from "@/models/userModel";
 import { v2 as cloudinary } from "cloudinary";
 import type { NextApiRequest, NextApiResponse } from "next";
 

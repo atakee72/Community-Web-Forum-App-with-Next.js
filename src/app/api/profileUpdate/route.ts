@@ -1,5 +1,5 @@
-import connectDB from "@/app/lib/mongodb";
-import UserProfileModel from "@/app/models/userProfileModel";
+import connectDB from "@/lib/mongodb";
+import UserProfileModel from "@/models/userProfileModel";
 import mongoose from "mongoose";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { NextResponse } from "next/server";

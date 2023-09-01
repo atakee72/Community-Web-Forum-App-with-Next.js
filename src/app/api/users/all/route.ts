@@ -1,4 +1,4 @@
-import userModel from "@/app/models/userModel";
+import userModel from "@/models/userModel";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 const getAllUsers = async (req: NextApiRequest, res: NextApiResponse) => {

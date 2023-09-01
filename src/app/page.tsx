@@ -1,6 +1,6 @@
+import TopicsList from "@/components/TopicsList";
 import { Metadata } from "next";
-import Image from "next/image";
-
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "GesichterrrrBuuuuch hahahah!",
@@ -12,7 +12,14 @@ interface HomeProps {}
 const Home: React.FC<HomeProps> = ({}) => {
   return (
     <>
-      <h1 className="bg-black text-white">Burasi acilis sayfasi</h1>
+      <div className="my-7">
+        <Link className="bg-[#814256] text-white p-2 " href={"/addTopic"}>
+          Add Topic
+        </Link>
+      </div>
+      <div>
+        <TopicsList />
+      </div>
     </>
   );
 };

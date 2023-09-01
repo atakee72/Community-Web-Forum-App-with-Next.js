@@ -13,7 +13,16 @@ function Navbar(): React.JSX.Element {
 
   return (
     <>
-      <nav className="bg-white dark:bg-[#4b9aaa] fixed w-full z-20 top-0 left-0 border-b dark:border-gray-600">
+      <nav className="flex justify-between items-center bg-[#4b9aaa] px-8 py-3">
+        <Link className="text-white font-bold " href={"/"}>
+          ma-HALLE
+        </Link>
+        {/* <Link className="bg-white p-2 " href={"/addTopic"}>
+          Add Topic
+        </Link> */}
+      </nav>
+
+      {/* <nav className="bg-white dark:bg-[#4b9aaa] fixed w-full z-20 top-0 left-0 border-b dark:border-gray-600">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <Link href="/" className="flex items-center">
             <span className="self-center text-2xl font-semibold whitespace-nowrap text-[#eccc6e]">
@@ -100,7 +109,7 @@ function Navbar(): React.JSX.Element {
             </ul>
           </div>
         </div>
-      </nav>
+      </nav> */}
     </>
   );
 }
