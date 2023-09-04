@@ -17,6 +17,12 @@ function Navbar(): React.JSX.Element {
         <Link className="text-white font-bold " href={"/"}>
           ma-HALLE
         </Link>
+        <Link
+          href="/login"
+          className="bg-[#eccc6e] py-2 px-4 rounded-md text-[#4b9aaa] font-semibold"
+        >
+          Login
+        </Link>
         {/* <Link className="bg-white p-2 " href={"/addTopic"}>
           Add Topic
         </Link> */}

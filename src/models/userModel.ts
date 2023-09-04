@@ -1,58 +1,80 @@
-import mongoose from "mongoose";
+import mongoose, { Schema, models } from "mongoose";
 
-const userSchema = new mongoose.Schema({
-  userName: {
-    type: String,
-    required: true,
-    unique: true,
+const userSchema = new Schema(
+  {
+    username: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+      required: true,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
   },
+  { timestamps: true }
+);
 
-  firstName: {
-    type: String,
-  },
+const User = models.User || mongoose.model("User", userSchema);
 
-  surName: {
-    type: String,
-  },
+export default User;
 
-  birthDay: {
-    type: Number,
-  },
+// const userSchema = new mongoose.Schema({
+//   userName: {
+//     type: String,
+//     required: true,
+//     unique: true,
+//   },
 
-  eMail: {
-    type: String,
-    required: true,
-    unique: true,
-  },
+//   firstName: {
+//     type: String,
+//   },
 
-  roleBadge: {
-    type: String,
-  },
+//   surName: {
+//     type: String,
+//   },
 
-  passWord: {
-    type: String,
-    required: true,
-  },
+//   birthDay: {
+//     type: Number,
+//   },
 
-  userPicture: {
-    type: String,
-  },
+//   eMail: {
+//     type: String,
+//     required: true,
+//     unique: true,
+//   },
 
-  hobbies: { type: Array },
+//   roleBadge: {
+//     type: String,
+//   },
 
-  comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "comment" }],
+//   passWord: {
+//     type: String,
+//     required: true,
+//   },
 
-  topics: [{ type: mongoose.Schema.Types.ObjectId, ref: "topic" }],
-  announcements: [
-    { type: mongoose.Schema.Types.ObjectId, ref: "announcement" },
-  ],
-  recommendations: [
-    { type: mongoose.Schema.Types.ObjectId, ref: "recommendation" },
-  ],
+//   userPicture: {
+//     type: String,
+//   },
 
-  likes: [{ type: String }],
-});
+//   hobbies: { type: Array },
 
-const userModel = mongoose.model("user", userSchema);
+//   comments: [{ type: mongoose.Schema.Types.ObjectId, ref: "comment" }],
 
-export default userModel;
+//   topics: [{ type: mongoose.Schema.Types.ObjectId, ref: "topic" }],
+//   announcements: [
+//     { type: mongoose.Schema.Types.ObjectId, ref: "announcement" },
+//   ],
+//   recommendations: [
+//     { type: mongoose.Schema.Types.ObjectId, ref: "recommendation" },
+//   ],
+
+//   likes: [{ type: String }],
+// });
+
+// const userModel = mongoose.model("user", userSchema);
+
+// export default userModel;

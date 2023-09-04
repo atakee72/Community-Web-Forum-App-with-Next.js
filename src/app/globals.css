@@ -3,10 +3,14 @@
 @tailwind utilities;
 
 
+body {
+  @apply bg-[#fffafa]
+}
+
 form > div {
   @apply flex flex-col gap-2;
 }
 
 input, textarea {
-  @apply shadow-md px-6 py-2 border-slate-300
+  @apply w-[400px] border px-6 py-2 border-[#eccc6e] bg-zinc-100/40
 }
