@@ -1,5 +1,9 @@
+"use client";
+
 import Link from "next/link";
 import React from "react";
+import { signOut } from "next-auth/react";
+
 // import { NavLink } from "react-router-dom";
 // import Logout from "./Logout";
 // import { AuthContext } from "../store/AuthContext";
@@ -17,15 +21,13 @@ function Navbar(): React.JSX.Element {
         <Link className="text-white font-bold " href={"/"}>
           ma-HALLE
         </Link>
-        <Link
-          href="/login"
-          className="bg-[#eccc6e] py-2 px-4 rounded-md text-[#4b9aaa] font-semibold"
+        <h3 className="text-white">This is a navbar</h3>
+        <button
+          onClick={() => signOut()}
+          className=" font-bold bg-red-400 hover:bg-red-500 text-[#4b9aaa] rounded-md px-6 py-2 mt-3 "
         >
-          Login
-        </Link>
-        {/* <Link className="bg-white p-2 " href={"/addTopic"}>
-          Add Topic
-        </Link> */}
+          Logout
+        </button>
       </nav>
 
       {/* <nav className="bg-white dark:bg-[#4b9aaa] fixed w-full z-20 top-0 left-0 border-b dark:border-gray-600">

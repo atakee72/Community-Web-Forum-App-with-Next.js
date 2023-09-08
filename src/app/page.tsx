@@ -1,3 +1,4 @@
+import LoginForm from "@/components/LoginForm";
 import TopicsList from "@/components/TopicsList";
 import { Metadata } from "next";
 import Link from "next/link";
@@ -12,13 +13,11 @@ interface HomeProps {}
 const Home: React.FC<HomeProps> = ({}) => {
   return (
     <>
-      <div className="my-7">
-        <Link className="bg-[#814256] text-white p-2 " href={"/addTopic"}>
-          Add Topic
-        </Link>
-      </div>
+      <h1 className=" text-center mt-10 font-bold text-3xl">
+        This will be like a landing page
+      </h1>
       <div>
-        <TopicsList />
+        <LoginForm />
       </div>
     </>
   );
