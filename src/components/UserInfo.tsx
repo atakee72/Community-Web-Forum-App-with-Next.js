@@ -1,23 +1,26 @@
-// "use client";
+"use client";
 
-// import { signOut } from "next-auth/react";
+import { useSession } from "next-auth/react";
+import Image from "next/image";
 
-export default function () {
+export default function UserInfo() {
+  const { data: session } = useSession();
   return (
     <div className=" grid text-center">
-      <div className=" shadow-lg p-8 bg-zinc-300/10 flex flex-col gap-2 my6 ">
+      <div className=" shadow-lg p-8 bg-zinc-300/10 flex flex-col items-center gap-2 my6 ">
+        <Image
+          className="rounded-full "
+          src={session?.user?.image}
+          height={60}
+          width={60}
+        />
         <div>
-          Current User: <span className="font-bold ">Johnny</span>
+          Current User: {""}
+          <span className="font-bold ">{session?.user?.name}</span>{" "}
         </div>
         <div>
-          Email: <span className="font-bold ">john@gmail.com</span>
+          Email: <span className="font-bold ">{session?.user?.email}</span>
         </div>
-        {/* <button
-          onClick={() => signOut()}
-          className=" font-bold bg-red-400 hover:bg-red-500 text-white px-6 py-2 mt-3 "
-        >
-          Logout
-        </button> */}
       </div>
     </div>
   );
