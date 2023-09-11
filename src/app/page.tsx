@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { authOptions } from "./api/auth/[...nextauth]/route";
-import SignInBtn from "@/components/signInBtn";
+import SignInBtn from "@/components/SignInBtn";
 
 export const metadata: Metadata = {
   title: "maHalle: Ein Kiez-Gesichterbuch",
