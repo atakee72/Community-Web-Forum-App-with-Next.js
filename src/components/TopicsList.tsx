@@ -23,8 +23,11 @@ export default async function TopicsList() {
   const { topics } = await getTopics();
   return (
     <>
-      {topics.map((t) => (
-        <div className="p-4 border border-[#eccc6e] my-3 flex justify-between gap-5 items-start">
+      {topics.map((t, i) => (
+        <div
+          key={i}
+          className="p-4 border border-[#eccc6e] my-3 flex justify-between gap-5 items-start"
+        >
           <div>
             <h2 className="font-bold text-xl ">{t.title}</h2>
             <div>{t.body}</div>

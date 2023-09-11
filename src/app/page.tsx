@@ -4,6 +4,7 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { authOptions } from "./api/auth/[...nextauth]/route";
 import SignInBtn from "@/components/SignInBtn";
+import React from "react";
 
 export const metadata: Metadata = {
   title: "maHalle: Ein Kiez-Gesichterbuch",
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 
 interface HomeProps {}
 
-const Home: React.FC<HomeProps> = async ({}) => {
+const Home: React.FC<HomeProps> = async () => {
   const session = await getServerSession(authOptions);
 
   if (session) {

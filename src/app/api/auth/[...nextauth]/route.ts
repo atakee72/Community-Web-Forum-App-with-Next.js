@@ -4,7 +4,7 @@ import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import bcrypt from "bcryptjs";
-import { signIn } from "next-auth/react";
+// import { signIn } from "next-auth/react";
 
 export const authOptions = {
   providers: [
