@@ -6,7 +6,21 @@ import GoogleProvider from "next-auth/providers/google";
 import bcrypt from "bcryptjs";
 // import { signIn } from "next-auth/react";
 
-export const authOptions = {
+interface AuthOptions {
+  providers: any[]; // Update this to the actual type or use 'any' if not sure
+  session: {
+    strategy: string;
+  };
+  secret: string;
+  pages: {
+    signIn: string;
+  };
+  callbacks: {
+    signIn: (params: { user: any; account: any }) => Promise<any>;
+  };
+}
+
+export const authOptions: AuthOptions = {
   providers: [
     CredentialsProvider({
       name: "credentials",
