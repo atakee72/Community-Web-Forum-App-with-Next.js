@@ -1,6 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
-const topicSchema = new Schema( //new mongoose.Schema?
+const topicSchema = new Schema(
   {
     title: String,
     body: String,

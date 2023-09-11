@@ -12,7 +12,8 @@ export default function Dashboard() {
         </Link>
       </div>
       <div>
-        <TopicsList />
+        {/* <TopicsList /> */}
+        <div>Hello</div>
       </div>
     </>
   );

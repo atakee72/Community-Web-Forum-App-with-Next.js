@@ -15,11 +15,6 @@ export default function LoginForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // if (!email || !password) {
-    //   setError("All fields are required!");
-    //   return;
-    // }
-
     try {
       const res = await signIn("credentials", {
         email,

@@ -6,7 +6,7 @@ import { authOptions } from "./api/auth/[...nextauth]/route";
 import SignInBtn from "@/components/signInBtn";
 
 export const metadata: Metadata = {
-  title: "GesichterrrrBuuuuch hahahah!",
+  title: "maHalle: Ein Kiez-Gesichterbuch",
   description: "Die Kommunikationsapp für unseres Kiez",
 };
 
