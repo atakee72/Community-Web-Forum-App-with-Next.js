@@ -16,7 +16,7 @@ interface AuthOptions {
     signIn: string;
   };
   callbacks: {
-    signIn: (params: { user: any; account: any }) => Promise<any>;
+    signIn: () => Promise<any>;
   };
 }
 
