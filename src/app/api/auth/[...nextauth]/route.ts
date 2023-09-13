@@ -73,8 +73,11 @@ export const authOptions: {
       console.log("🚀 ~ signIn ~ User:", user);
       console.log("🚀 ~ signIn ~ Account:", account);
 
-      if (account.provider === "google") {
-        const { name, email } = user;
+      if (account?.provider === "google") {
+        const {
+          // name,
+          email,
+        } = user;
         try {
           await connectMongoDB();
           const userExists = await User.findOne({ email });
@@ -88,8 +91,8 @@ export const authOptions: {
                 "Content-Type": "application/json",
               },
               body: JSON.stringify({
-                name: user.name,
-                email: user.email,
+                name: user?.name,
+                email: user?.email,
               }),
             });
 
