@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import { NextPage } from "next";
 
-const LoginForm: NextPage = (props): JSX.Element => {
+const LoginForm: NextPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
