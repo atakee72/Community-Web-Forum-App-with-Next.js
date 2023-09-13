@@ -88,8 +88,8 @@ export const authOptions: {
                 "Content-Type": "application/json",
               },
               body: JSON.stringify({
-                username: name,
-                email: email,
+                name,
+                email,
               }),
             });
 
