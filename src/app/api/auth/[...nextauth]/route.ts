@@ -15,12 +15,18 @@ const googleClientSecret = process.env.GOOGLE_CLIENT_SECRET || "";
 export const authOptions: {
   providers: (CredentialsConfig<{}> | OAuthConfig<GoogleProfile>)[];
   session: {
-    strategy: string;
+    strategy: SessionStrategy | undefined;
   };
   secret: string | undefined;
   pages: { signIn: string | undefined };
   callbacks: {
-    signIn({ user, account }: { user: any; account: any }): Promise<any>;
+    signIn({
+      user,
+      account,
+    }: {
+      user: GoogleProfile;
+      account: GoogleProfile;
+    }): Promise<CredentialsConfig>;
   };
 } = {
   providers: [
