@@ -7,6 +7,7 @@ import CredentialsProvider, {
 import GoogleProvider, { GoogleProfile } from "next-auth/providers/google";
 import bcrypt from "bcryptjs";
 import { OAuthConfig } from "next-auth/providers/oauth"; // Import OAuthConfig
+import { SessionStrategy } from "next-auth";
 // import { signIn } from "next-auth/react";
 const googleClientId = process.env.GOOGLE_CLIENT_ID || "";
 const googleClientSecret = process.env.GOOGLE_CLIENT_SECRET || "";
@@ -17,6 +18,10 @@ export const authOptions: {
     strategy: string;
   };
   secret: string | undefined;
+  pages: { signIn: string | undefined };
+  callbacks: {
+    signIn({ user, account }: { user: any; account: any }): Promise<any>;
+  };
 } = {
   providers: [
     CredentialsProvider({
@@ -57,7 +62,7 @@ export const authOptions: {
     }),
   ],
   session: {
-    strategy: "jwt",
+    strategy: "jwt" as SessionStrategy,
   },
   secret: process.env.NEXTAUTH_SECRET,
   pages: {
