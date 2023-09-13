@@ -1,22 +1,34 @@
 import connectMongoDB from "@/lib/mongodb";
 import User from "@/models/userModel";
 import NextAuth from "next-auth/next";
-import CredentialsProvider from "next-auth/providers/credentials";
-import GoogleProvider from "next-auth/providers/google";
+import CredentialsProvider, {
+  CredentialsConfig,
+} from "next-auth/providers/credentials";
+import GoogleProvider, { GoogleProfile } from "next-auth/providers/google";
 import bcrypt from "bcryptjs";
+import { OAuthConfig } from "next-auth/providers/oauth"; // Import OAuthConfig
 // import { signIn } from "next-auth/react";
+const googleClientId = process.env.GOOGLE_CLIENT_ID || "";
+const googleClientSecret = process.env.GOOGLE_CLIENT_SECRET || "";
 
-export const authOptions = {
+export const authOptions: {
+  providers: (CredentialsConfig<{}> | OAuthConfig<GoogleProfile>)[];
+  session: {
+    strategy: string;
+  };
+  secret: string | undefined;
+} = {
   providers: [
     CredentialsProvider({
+      type: "credentials",
       name: "credentials",
       credentials: {},
 
       async authorize(credentials) {
-        // const user = { id: "1" };       //dummy user to check the functionality first
-        // return user;
-
-        const { email, password } = credentials;
+        const { email, password } = credentials as {
+          email: string;
+          password: string;
+        };
 
         try {
           await connectMongoDB();
@@ -40,8 +52,8 @@ export const authOptions = {
     }),
 
     GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID,
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      clientId: googleClientId,
+      clientSecret: googleClientSecret,
     }),
   ],
   session: {

@@ -1,18 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { FormEventHandler, useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import React from "react";
+import { NextPage } from "next";
 
-export default function LoginForm() {
+const LoginForm: NextPage = (props): JSX.Element => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
   const router = useRouter();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
 
     try {
@@ -22,7 +24,7 @@ export default function LoginForm() {
         redirect: false,
       });
 
-      if (res.error) {
+      if (res?.error) {
         setError("Invalid credentials!");
         return;
       }
@@ -64,4 +66,6 @@ export default function LoginForm() {
       </div>
     </div>
   );
-}
+};
+
+export default LoginForm;
