@@ -20,13 +20,7 @@ export const authOptions: {
   secret: string | undefined;
   pages: { signIn: string | undefined };
   callbacks: {
-    signIn({
-      user,
-      account,
-    }: {
-      user: GoogleProfile;
-      account: GoogleProfile;
-    }): Promise<CredentialsConfig>;
+    signIn({ user, account }: { user: any; account: any }): Promise<any>;
   };
 } = {
   providers: [
