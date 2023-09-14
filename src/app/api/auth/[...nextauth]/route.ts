@@ -6,16 +6,16 @@ import CredentialsProvider, {
 } from "next-auth/providers/credentials";
 import GoogleProvider, { GoogleProfile } from "next-auth/providers/google";
 import bcrypt from "bcryptjs";
-import { OAuthConfig } from "next-auth/providers/oauth"; // Import OAuthConfig
+import { OAuthConfig } from "next-auth/providers/oauth";
 import { SessionStrategy } from "next-auth";
-// import { signIn } from "next-auth/react";
+
 const googleClientId = process.env.GOOGLE_CLIENT_ID || "";
 const googleClientSecret = process.env.GOOGLE_CLIENT_SECRET || "";
 
 export const authOptions: {
   providers: (CredentialsConfig<{}> | OAuthConfig<GoogleProfile>)[];
   session: {
-    strategy: SessionStrategy | undefined;
+    strategy: SessionStrategy | undefined; // Corrected type here
   };
   secret: string | undefined;
   pages: { signIn: string | undefined };
