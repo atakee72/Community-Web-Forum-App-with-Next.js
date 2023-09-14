@@ -1,6 +1,6 @@
 import EditTopicForm from "@/components/EditTopicForm";
 
-const getTopicById = async (id) => {
+const getTopicById = async (id: string) => {
   const apiUrl = process.env.API_URL;
 
   try {
@@ -18,7 +18,11 @@ const getTopicById = async (id) => {
   }
 };
 
-export default async function EditTopic({ params }) {
+export default async function EditTopic({
+  params,
+}: {
+  params: { id: string };
+}) {
   const { id } = params;
   const { topic } = await getTopicById(id);
   const { title, body } = topic;

@@ -2,7 +2,13 @@ import RemoveTopicBtn from "./RemoveTopicBtn";
 import Link from "next/link";
 import { HiPencilAlt } from "react-icons/hi";
 
-const getTopics = async () => {
+interface Topic {
+  _id: string;
+  title: string;
+  body: string;
+}
+
+const getTopics = async (): Promise<{ topics: Topic[] }> => {
   const apiUrl = process.env.API_URL;
 
   try {
@@ -16,6 +22,7 @@ const getTopics = async () => {
     return res.json();
   } catch (error) {
     console.log("Error loading topics:", error);
+    return { topics: [] };
   }
 };
 
@@ -23,9 +30,9 @@ export default async function TopicsList() {
   const { topics } = await getTopics();
   return (
     <>
-      {topics.map((t, i) => (
+      {topics.map((t: Topic, i: number) => (
         <div
-          key={i}
+          key={t._id}
           className="p-4 border border-[#eccc6e] my-3 flex justify-between gap-5 items-start"
         >
           <div>

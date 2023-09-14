@@ -3,13 +3,19 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export default function EditTopicForm({ id, title, body }) {
+interface EditTopicFormProps {
+  id: string;
+  title: string;
+  body: string;
+}
+
+export default function EditTopicForm({ id, title, body }: EditTopicFormProps) {
   const [newTitle, setNewTitle] = useState(title);
   const [newBody, setNewBody] = useState(body);
 
   const router = useRouter();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
