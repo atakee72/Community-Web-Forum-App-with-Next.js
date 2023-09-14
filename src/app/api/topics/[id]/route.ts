@@ -3,6 +3,7 @@ import Topic from "@/models/topicModel";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function PUT(request: NextRequest, { params }) {
+  //params
   const { id } = params;
   const { newTitle: title, newBody: body } = await request.json();
   await connectMongoDB();
