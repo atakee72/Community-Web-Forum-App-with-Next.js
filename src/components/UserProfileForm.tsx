@@ -79,8 +79,9 @@ function UserProfileForm() {
         </button>
         <div className="bg-slate-100 flex flex-col">
           {error &&
-            error.map((err) => (
+            error.map((err, i: number) => (
               <div
+                key={i}
                 className={`${
                   success ? "text-green-800" : "text-red-600"
                 } px-5 py-2 `}
