@@ -30,7 +30,7 @@ export default async function TopicsList() {
   const { topics } = await getTopics();
   return (
     <>
-      {topics.map((t: Topic, i: number) => (
+      {topics.map((t: Topic) => (
         <div
           key={t._id}
           className="p-4 border border-[#eccc6e] my-3 flex justify-between gap-5 items-start"

@@ -59,7 +59,7 @@ const LoginForm: NextPage = () => {
             </div>
           )}
           <Link className="text-sm mt-3 text-right " href={"/register"}>
-            Don't you have an account?{" "}
+            You do not have an account?{" "}
             <span className="underline ">Register</span>
           </Link>
         </form>

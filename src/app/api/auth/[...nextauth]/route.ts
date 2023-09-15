@@ -7,6 +7,7 @@ import CredentialsProvider, {
 import GoogleProvider, { GoogleProfile } from "next-auth/providers/google";
 import bcrypt from "bcryptjs";
 import { SessionStrategy } from "next-auth";
+import { OAuthConfig } from "next-auth/providers/oauth";
 
 const googleClientId = process.env.GOOGLE_CLIENT_ID || "";
 const googleClientSecret = process.env.GOOGLE_CLIENT_SECRET || "";
