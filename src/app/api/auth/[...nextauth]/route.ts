@@ -6,7 +6,6 @@ import CredentialsProvider, {
 } from "next-auth/providers/credentials";
 import GoogleProvider, { GoogleProfile } from "next-auth/providers/google";
 import bcrypt from "bcryptjs";
-import { OAuthConfig } from "next-auth/providers/oauth";
 import { SessionStrategy } from "next-auth";
 
 const googleClientId = process.env.GOOGLE_CLIENT_ID || "";
@@ -15,7 +14,7 @@ const googleClientSecret = process.env.GOOGLE_CLIENT_SECRET || "";
 export const authOptions: {
   providers: (CredentialsConfig<{}> | OAuthConfig<GoogleProfile>)[];
   session: {
-    strategy: SessionStrategy | undefined; // Corrected type here
+    strategy: SessionStrategy; // Corrected to SessionStrategy
   };
   secret: string | undefined;
   pages: { signIn: string | undefined };
