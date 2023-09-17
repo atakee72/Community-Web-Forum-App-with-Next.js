@@ -34,19 +34,21 @@ export default async function TopicsList() {
         <div>No topics to display.</div>
       ) : (
         topics.map((t: Topic) => (
-          <div
-            key={t._id}
-            className="p-4 border border-[#eccc6e] my-3 flex justify-between gap-5 items-start"
-          >
-            <div>
-              <h2 className="font-bold text-xl ">{t.title}</h2>
-              <div>{t.body}</div>
-            </div>
-            <div className="flex justify-between items-center gap-2">
-              <RemoveTopicBtn id={t._id} />
-              <Link href={`/editTopic/${t._id}`}>
-                <HiPencilAlt size={24} />
-              </Link>
+          <div className="bg-[#4b9aaa]">
+            <div
+              key={t._id}
+              className="p-4 border bg-[#eccc6e] border-[#814256] my-3 flex justify-between gap-5 items-start"
+            >
+              <div>
+                <h2 className="font-bold text-xl ">{t.title}</h2>
+                <div>{t.body}</div>
+              </div>
+              <div className="flex justify-between items-center gap-2">
+                <RemoveTopicBtn id={t._id} />
+                <Link href={`/editTopic/${t._id}`}>
+                  <HiPencilAlt size={24} />
+                </Link>
+              </div>
             </div>
           </div>
         ))
