@@ -1,4 +1,4 @@
-// import TopicsList from "@/components/TopicsList";
+import TopicsList from "@/components/TopicsList";
 import UserInfo from "@/components/UserInfo";
 import Link from "next/link";
 
@@ -12,8 +12,8 @@ export default function Dashboard() {
         </Link>
       </div>
       <div>
-        {/* <TopicsList /> */}
-        <div>Hello</div>
+        <TopicsList />
+        {/* <div>Hello</div> */}
       </div>
     </>
   );
