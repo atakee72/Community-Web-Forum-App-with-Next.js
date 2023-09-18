@@ -21,9 +21,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <AuthProvider>
-          <div className="max-w-7xl mx-auto p-4">
+          <div className="w-full mx-auto ">
             <Navbar />
-            <div className="mt-8">{children}</div>
+            <div className="mt-32">{children}</div>
           </div>
         </AuthProvider>
       </body>

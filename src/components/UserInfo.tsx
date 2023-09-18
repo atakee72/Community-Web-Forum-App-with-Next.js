@@ -10,7 +10,7 @@ export default function UserInfo() {
   if (typeof userImage === "string") {
     return (
       <div className=" grid text-center">
-        <div className=" shadow-lg p-8 bg-zinc-300/10 flex flex-col items-center gap-2 my6 ">
+        <div className="flex flex-col items-center gap-2">
           <Image
             className="rounded-full"
             src={userImage}
@@ -19,29 +19,38 @@ export default function UserInfo() {
             alt="user image"
           />
           <div>
-            Current User: {""}
-            <span className="font-bold ">{session?.user?.name}</span>{" "}
+            <span className="font-bold text-[#4b9aaa] ">
+              {session?.user?.name}
+            </span>{" "}
           </div>
-          <div>
+          {/* <div>
             Email: <span className="font-bold ">{session?.user?.email}</span>
-          </div>
+          </div> */}
         </div>
       </div>
     );
   } else {
     return (
       <div className=" grid text-center">
-        <div className=" shadow-lg p-8 bg-zinc-300/10 flex flex-col items-center gap-2 my6 ">
-          <i>
-            <span>User image is not available.</span>
-          </i>
+        <div className="flex flex-col items-center ">
+          <Image
+            className="rounded-full"
+            src="/face__dummy.webp"
+            height={60}
+            width={60}
+            alt="dummy user image"
+          />
+          {/* <i>
+            <span className="text-xs">User image is not available.</span>
+          </i> */}
           <div>
-            Current User: {""}
-            <span className="font-bold ">{session?.user?.name}</span>{" "}
+            <span className="font-bold text-[#4b9aaa] ">
+              {session?.user?.name}
+            </span>{" "}
           </div>
-          <div>
+          {/* <div>
             Email: <span className="font-bold ">{session?.user?.email}</span>
-          </div>
+          </div> */}
         </div>
       </div>
     );

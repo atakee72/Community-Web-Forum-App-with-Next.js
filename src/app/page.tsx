@@ -21,17 +21,14 @@ const Home: React.FC<HomeProps> = async () => {
   }
 
   return (
-    <>
-      <h1 className=" text-center mt-10 font-bold text-3xl">
-        This will be like a landing page
-      </h1>
-      <div className=" mt-24">
+    <div className="flex flex-col-reverse justify-start gap-5 items-center">
+      <div>
         <SignInBtn />
       </div>
       <div>
         <LoginForm />
       </div>
-    </>
+    </div>
   );
 };
 

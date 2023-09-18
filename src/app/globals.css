@@ -7,6 +7,10 @@ body {
   @apply bg-[#eccc6e]
 }
 
+nav ul li  {
+  @apply bg-[#eccc6e] text-[#814256] rounded-md px-5 shadow-lg border-t-4 border-[#4b9aaa] py-1 hover:bg-yellow-200/90
+}
+
 form > div {
   @apply flex flex-col gap-2;
 }
