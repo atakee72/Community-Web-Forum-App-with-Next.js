@@ -14,6 +14,18 @@ const userSchema = new Schema(
       type: String,
       required: true,
     },
+    firstName: {
+      type: String,
+    },
+    surname: {
+      type: String,
+    },
+    userPicture: {
+      type: String,
+    },
+    roleBadge: {
+      type: String,
+    },
   },
   { timestamps: true }
 );
@@ -21,6 +33,7 @@ const userSchema = new Schema(
 const User = models.User || mongoose.model("User", userSchema);
 
 export default User;
+
 
 // const userSchema = new mongoose.Schema({
 //   userName: {

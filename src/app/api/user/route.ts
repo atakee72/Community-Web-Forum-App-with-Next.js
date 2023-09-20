@@ -13,3 +13,22 @@ export async function POST(request: NextRequest) {
     { status: 201 }
   );
 }
+
+
+export async function PUT(request: NextRequest) {
+  const { id, firstName, surname, userPicture, roleBadge } =
+    await request.json();
+
+  await connectMongoDB();
+
+  const addNewFields = {
+    firstName,
+    surname,
+    userPicture,
+    roleBadge,
+  };
+
+  await User.findByIdAndUpdate({ _id: id }, { $set: addNewFields });
+  return NextResponse.json({ message: "User info updated!" }, { status: 200 });
+}
+

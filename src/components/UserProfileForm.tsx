@@ -1,28 +1,44 @@
 "use client";
 
+import { useSession } from "next-auth/react";
 import React from "react";
 import { useState } from "react";
 
 function UserProfileForm() {
-  const [fullname, setFullname] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const { data: session } = useSession();
+
+  const [username, setUsername] = useState(session?.user?.name);
+  const [email, setEmail] = useState(session?.user?.email);
+  const [firstName, setFirstName] = useState("");
+  const [surname, setSurname] = useState("");
+  const [userPicture, setUserPicture] = useState("");
+  const [roleBadge, setRoleBadge] = useState("");
   const [error, setError] = useState([]);
   const [success, setSuccess] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Inputs", fullname, email, message);
+    console.log(
+      "Inputs",
+      username,
+      email,
+      firstName,
+      surname,
+      userPicture,
+      roleBadge
+    );
 
-    const res = await fetch("/api/profileUpdate", {
-      method: "POST",
+    const res = await fetch("/api/user", {
+      method: "PUT",
       headers: {
         "Content-type": "application/json",
       },
       body: JSON.stringify({
-        fullname,
-        email,
-        message,
+        id: session?.user?._id,
+        firstName,
+        surname,
+        userPicture,
+        roleBadge,
       }),
     });
 
@@ -32,7 +48,7 @@ function UserProfileForm() {
     setSuccess(success);
 
     if (success) {
-      setFullname(""), setEmail(""), setMessage("");
+      setFirstName(""), setSurname(""), setRoleBadge("");
     }
   };
 
@@ -43,14 +59,44 @@ function UserProfileForm() {
         onSubmit={handleSubmit}
       >
         <div>
-          <label htmlFor="fullname">Full Name</label>
+          <label htmlFor="userPicture">Your Picture</label>
+          <input
+            className="h-32"
+            name="userPicture"
+            id="userPicture"
+            onChange={(e) => setUserPicture(e.target.value)}
+            value={userPicture}
+          />
+        </div>
+        <div>
+          <label htmlFor="firstName">First Name</label>
           <input
             type="text"
-            name="fullname"
-            id="fullname"
-            placeholder="John Doe"
-            onChange={(e) => setFullname(e.target.value)}
-            value={fullname}
+            name="firstName"
+            id="firstName"
+            onChange={(e) => setFirstName(e.target.value)}
+            value={firstName}
+          />
+        </div>
+        <div>
+          <label htmlFor="surname">Surname</label>
+          <input
+            type="text"
+            name="surname"
+            id="surname"
+            onChange={(e) => setSurname(e.target.value)}
+            value={surname}
+          />
+        </div>
+        <div>
+          <label htmlFor="username">User Name</label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="username"
+            onChange={(e) => setUsername(e.target.value)}
+            value={username}
           />
         </div>
         <div>
@@ -64,16 +110,16 @@ function UserProfileForm() {
           />
         </div>
         <div>
-          <label htmlFor="message">Your Message</label>
-          <textarea
-            className="h-32"
-            name="message"
-            id="message"
-            placeholder="Type your message here"
-            onChange={(e) => setMessage(e.target.value)}
-            value={message}
-          ></textarea>
+          <label htmlFor="roleBadge">Role Badge</label>
+          <input
+            type="text"
+            id="roleBadge"
+            placeholder="john@gmail.com"
+            onChange={(e) => setRoleBadge(e.target.value)}
+            value={roleBadge}
+          />
         </div>
+
         <button
           className="bg-[#4b9aaa]  p-3 text-white font-bold"
           type="submit"
