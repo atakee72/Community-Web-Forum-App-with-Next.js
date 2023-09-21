@@ -16,41 +16,47 @@ function UserProfileForm() {
   const [error, setError] = useState([]);
   const [success, setSuccess] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log(
-      "Inputs",
-      username,
-      email,
+const user = session?.user;
+console.log("🚀 ~ UserProfileForm ~ user:", user);
+
+const userId = session?.user?._id || session?.user?.id;
+
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  console.log(
+    "Inputs",
+    username,
+    email,
+    firstName,
+    surname,
+    userPicture,
+    roleBadge
+  );
+
+  const res = await fetch("/api/user", {
+    method: "PUT",
+    headers: {
+      "Content-type": "application/json",
+    },
+    body: JSON.stringify({
+      id: userId,
       firstName,
       surname,
       userPicture,
-      roleBadge
-    );
+      roleBadge,
+    }),
+  });
 
-    const res = await fetch("/api/user", {
-      method: "PUT",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({
-        id: session?.user?._id,
-        firstName,
-        surname,
-        userPicture,
-        roleBadge,
-      }),
-    });
+  const { msg, success } = await res.json();
+  setError(msg);
+  console.log(error);
+  setSuccess(success);
 
-    const { msg, success } = await res.json();
-    setError(msg);
-    console.log(error);
-    setSuccess(success);
-
-    if (success) {
-      setFirstName(""), setSurname(""), setRoleBadge("");
-    }
-  };
+  if (success) {
+    // setFirstName(""), setSurname(""), setRoleBadge("");
+    console.log("User updated!");
+  }
+};
 
   return (
     <>
