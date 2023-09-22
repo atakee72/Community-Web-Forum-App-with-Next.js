@@ -64,66 +64,73 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         className="py-4 mt-4 border-t flex flex-col gap-5"
         onSubmit={handleSubmit}
       >
-        <div>
-          <label htmlFor="userPicture">Your Picture</label>
-          <input
-            className="h-32"
-            name="userPicture"
-            id="userPicture"
-            onChange={(e) => setUserPicture(e.target.value)}
-            value={userPicture}
-          />
-        </div>
-        <div>
-          <label htmlFor="firstName">First Name</label>
-          <input
-            type="text"
-            name="firstName"
-            id="firstName"
-            onChange={(e) => setFirstName(e.target.value)}
-            value={firstName}
-          />
-        </div>
-        <div>
-          <label htmlFor="surname">Surname</label>
-          <input
-            type="text"
-            name="surname"
-            id="surname"
-            onChange={(e) => setSurname(e.target.value)}
-            value={surname}
-          />
-        </div>
-        <div>
-          <label htmlFor="username">User Name</label>
-          <input
-            type="text"
-            name="username"
-            id="username"
-            placeholder="username"
-            onChange={(e) => setUsername(e.target.value)}
-            value={username}
-          />
-        </div>
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            type="text"
-            id="email"
-            placeholder="john@gmail.com"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-          />
-        </div>
-        <div>
-          <label htmlFor="roleBadge">Role Badge</label>
-          <input
-            type="text"
-            id="roleBadge"
-            placeholder="john@gmail.com"
-            onChange={(e) => setRoleBadge(e.target.value)}
-            value={roleBadge}
-          />
+        <div className="flex flex-row items-start justify-center gap-5">
+          <div className="flex flex-col gap-3 items-center">
+            <div>
+              <label htmlFor="userPicture">Your Picture</label>
+              <input
+                type="file"
+                className="h-32"
+                name="userPicture"
+                id="userPicture"
+                onChange={(e) => setUserPicture(e.target.value)}
+                value={userPicture}
+              />
+            </div>
+            <div>
+              <label htmlFor="firstName">First Name</label>
+              <input
+                type="text"
+                name="firstName"
+                id="firstName"
+                onChange={(e) => setFirstName(e.target.value)}
+                value={firstName}
+              />
+            </div>
+            <div>
+              <label htmlFor="surname">Surname</label>
+              <input
+                type="text"
+                name="surname"
+                id="surname"
+                onChange={(e) => setSurname(e.target.value)}
+                value={surname}
+              />
+            </div>
+          </div>
+          <div className="flex flex-col gap-3 items-center">
+            <div>
+              <label htmlFor="username">User Name</label>
+              <input
+                type="text"
+                name="username"
+                id="username"
+                placeholder="username"
+                onChange={(e) => setUsername(e.target.value)}
+                value={username}
+              />
+            </div>
+            <div>
+              <label htmlFor="email">Email</label>
+              <input
+                type="text"
+                id="email"
+                placeholder="john@gmail.com"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}
+              />
+            </div>
+            <div>
+              <label htmlFor="roleBadge">Role Badge</label>
+              <input
+                type="text"
+                id="roleBadge"
+                placeholder="john@gmail.com"
+                onChange={(e) => setRoleBadge(e.target.value)}
+                value={roleBadge}
+              />
+            </div>
+          </div>
         </div>
 
         <button

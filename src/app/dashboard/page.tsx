@@ -6,9 +6,9 @@ export default function Dashboard() {
   return (
     <>
       {/* <UserInfo /> */}
-      <div className="my-7">
+      <div className="my-7 ">
         <Link
-          className="bg-[#814256] text-[#eccc6e] p-2 shadow-lg rounded-lg w-full"
+          className="bg-[#814256] text-[#eccc6e] p-2 shadow-inner font-sans rounded-lg w-1/3 py-5 mx-auto grid place-items-center"
           href={"/addTopic"}
         >
           Start a debate

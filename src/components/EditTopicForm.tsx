@@ -46,7 +46,7 @@ export default function EditTopicForm({ id, title, body }: EditTopicFormProps) {
         className="border border-[#eccc6e] px-8 py-2"
         placeholder="Topic title"
       />
-      <input
+      <textarea
         onChange={(e) => setNewBody(e.target.value)}
         value={newBody}
         className="border border-[#eccc6e] px-8 py-2"

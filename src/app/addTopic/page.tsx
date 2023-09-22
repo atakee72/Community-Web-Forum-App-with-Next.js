@@ -45,7 +45,7 @@ export default function AddTopic() {
         className="border border-[#eccc6e] px-8 py-2"
         placeholder="Topic title"
       />
-      <input
+      <textarea
         onChange={(e) => setBody(e.target.value)}
         value={body}
         className="border border-[#eccc6e] px-8 py-2"
