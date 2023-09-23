@@ -70,7 +70,7 @@ function Navbar(): React.JSX.Element {
 
             <button
               onClick={() => signOut()}
-              className=" font-mono font-sans border-t-4 border-[#4b9aaa] bg-red-500 hover:bg-red-400 text-[#4b9aaa] rounded-md px-5 py-2 shadow-inner hover:shadow-lg "
+              className=" font-mono border-t-4 border-[#4b9aaa] bg-red-500 hover:bg-red-400 text-[#4b9aaa] rounded-md px-5 py-2 shadow-inner hover:shadow-lg "
             >
               Logout
             </button>

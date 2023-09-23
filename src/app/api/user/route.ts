@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
 
 
 export async function PUT(request: NextRequest) {
-  const { id, firstName, surname, userPicture, roleBadge } =
+  const { email, firstName, surname, userPicture, roleBadge } =
     await request.json();
 
   await connectMongoDB();
@@ -28,7 +28,22 @@ export async function PUT(request: NextRequest) {
     roleBadge,
   };
 
-  await User.findByIdAndUpdate({ _id: id }, { $set: addNewFields });
+  await User.findOneAndUpdate({ email: email }, { $set: addNewFields });
   return NextResponse.json({ message: "User info updated!" }, { status: 200 });
+}
+
+export async function GET(request: NextRequest) {
+  const email = request.nextUrl.searchParams.get("email"); // Access email from query parameters
+  await connectMongoDB();
+  const user = await User.findOne({ email: email });
+
+  if (!user) {
+    return NextResponse.json({ message: "User not found" }, { status: 404 });
+  }
+
+  return NextResponse.json(
+    { message: "LOGGED USER RETRIEVED!", user },
+    { status: 200 }
+  );
 }
 
