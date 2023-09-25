@@ -88,7 +88,7 @@ return (
             <label htmlFor="userPicture">Your Picture</label>
             <input
               type="file"
-              className="h-32 focus:outline-dotted "
+              className=" focus:outline-dotted "
               name="userPicture"
               id="userPicture"
               onChange={(e) => setUserPicture(e.target.value)}
