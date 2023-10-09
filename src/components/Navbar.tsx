@@ -12,11 +12,12 @@ function Navbar(): React.JSX.Element {
   // const userImage = session?.user?.image;
 
   return (
-    <div className=" flex items-center fixed top-0 w-full z-10 rounded-s-3xl bg-[#814256] backdrop-blur-large shadow-md">
+    <div className=" flex items-center fixed top-0 w-full z-10 bg-[#814256] backdrop-blur-large shadow-md">
       <div>
         <Link href={"/"}>
           <Image
-            className="rounded-s-3xl "
+            style={{ borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70% " }}
+            className="rounded-s-3xl m-1 p-1"
             src="/Beige_und_Grau.png"
             width={100}
             height={100}

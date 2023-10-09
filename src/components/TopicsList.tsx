@@ -29,7 +29,7 @@ const getTopics = async (): Promise<{ topics: Topic[] }> => {
 export default async function TopicsList() {
   const { topics } = await getTopics();
   return (
-    <div className="card-container shadow-lg bg-[#4b9aaa] mx-3 sm:mx-7 md:mx-16 lg:mx-32 xl:mx-56 2xl:mx-80 rounded-lg py-8">
+    <div>
       {topics.length === 0 ? (
         <div>No topics to display.</div>
       ) : (
