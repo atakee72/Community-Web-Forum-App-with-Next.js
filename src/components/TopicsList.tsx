@@ -1,6 +1,7 @@
 import RemoveTopicBtn from "./RemoveTopicBtn";
 import Link from "next/link";
 import { HiPencilAlt } from "react-icons/hi";
+import Modal from "./Modal";
 
 interface Topic {
   _id: string;
@@ -44,6 +45,7 @@ export default async function TopicsList() {
                 <Link href={`/editTopic/${t._id}`}>
                   <HiPencilAlt size={24} />
                 </Link>
+                <Modal />
               </div>
               <div className="bg-[#4b9aaa] shadow-inner rounded-lg my-7 p-3 ">
                 band

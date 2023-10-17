@@ -12,7 +12,7 @@ function Navbar(): React.JSX.Element {
   // const userImage = session?.user?.image;
 
   return (
-    <div className=" flex items-center fixed top-0 w-full z-10 bg-[#814256] backdrop-blur-large shadow-md">
+    <div className=" flex items-center fixed top-0 w-full z-50 bg-[#814256] backdrop-blur-large shadow-md">
       <div>
         <Link href={"/"}>
           <Image
