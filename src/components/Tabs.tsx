@@ -32,7 +32,7 @@ const Tabs = ({ children }) => {
         ))}
       </div>
 
-      <div className="py-4">
+      <div className="py-4 transition-all duration-500 ease-in-out">
         {children.map((child) => {
           if (child.props.label === activeTab) {
             return <div key={child.props.label}>{child.props.children}</div>;
