@@ -8,7 +8,7 @@ import TopicsList from "@/components/TopicsList";
 export default function Dashboard() {
   return (
     <div className="card-container shadow-lg bg-[#4b9aaa] mx-3 sm:mx-7 md:mx-16 lg:mx-32 xl:mx-56 2xl:mx-80 h-auto rounded-lg py-8">
-      <Tabs className="tabs flex justify-start items-center bg-[#4995A5] mx-8 mt-7 mb-7 h-20 ">
+      <Tabs>
         {collectionTabs.map((tab, i) => (
           <Tab label={tab.header} key={i}>
             <div className="py-4 transition-all duration-500 ease-in-out">
@@ -28,7 +28,12 @@ export default function Dashboard() {
                 {tab.component === "RecommendationsList" && (
                   <RecommendationsList />
                 )}
-                {tab.component === "TopicsList" && <TopicsList />}
+                {
+                  tab.component === "TopicsList" && (
+                    <div>TopicsList will come here</div>
+                  )
+                  // <TopicsList />
+                }
               </div>
             </div>
           </Tab>

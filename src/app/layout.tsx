@@ -4,6 +4,7 @@ import { Inter } from 'next/font/google'
 import Navbar from "@/components/Navbar";
 import { AuthProvider } from "./Providers";
 import React from "react";
+import { Footer } from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,6 +25,7 @@ export default function RootLayout({
           <div className="w-full mx-auto ">
             <Navbar />
             <div className="mt-32">{children}</div>
+            <Footer />
           </div>
         </AuthProvider>
       </body>

@@ -1,41 +1,58 @@
 "use client";
 
+// Import necessary types from Next.js and React
 import Link from "next/link";
-import React, { useState } from "react";
-import { collectionTabs } from "@/lib/foraTabsData";
+import React, { ReactNode, useState } from "react";
 
-const Tabs = ({ children }) => {
-  const [activeTab, setActiveTab] = useState(children[0].props.label);
+// Define the type for the children of the Tabs component
+type TabChild = {
+  props: {
+    label: string;
+    children: ReactNode;
+  };
+};
 
-  const handleClick = (e, newActiveTab) => {
+// Define the TabsProps type to annotate the Tabs component
+type TabsProps = {
+  children: ReactNode[]; // An array of ReactNode
+};
+
+const Tabs = ({ children }: TabsProps) => {
+  const [activeTab, setActiveTab] = useState<string>((children[0] as TabChild).props.label);
+
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, newActiveTab: string) => {
     e.preventDefault();
     setActiveTab(newActiveTab);
   };
 
   return (
     <>
-      <div className="tabs flex justify-start  items-center bg-[#4995A5] mx-16 mt-7 mb-20 ">
-        {children.map((child) => (
-          <Link
-            key={child.props.label}
-            href={`/dashboard#${child.props.label}`}
-            scroll={false}
-            className={`${
-              activeTab === child.props.label
-                ? "border-b-4 border-[#eccc6e]"
-                : ""
-            } tab tab-sm tab-lifted hover:bg-[#b4b0a6] bg-[#C9C4B9] p-2 mt-3 text-[#814256] pb-5 border-[#814256] m-1 transition-all duration-500 ease-in-out`}
-            onClick={(e) => handleClick(e, child.props.label)}
-          >
-            {child.props.label}
-          </Link>
-        ))}
+      <div className="tabs flex justify-start items-center bg-[#4995A5] mx-16 mt-7 mb-20">
+        {children.map((child: ReactNode) => {
+          const tabChild = child as TabChild;
+          return (
+            <Link
+              key={tabChild.props.label}
+              href={`/dashboard#${tabChild.props.label}`}
+              scroll={false}
+              className={`${
+                activeTab === tabChild.props.label
+                  ? "border-b-4 border-[#eccc6e]"
+                  : ""
+              } tab tab-sm tab-lifted hover:bg-[#b4b0a6] bg-[#C9C4B9] p-2 mt-3 text-[#814256] pb-5 border-[#814256] m-1 transition-all duration-500 ease-in-out`}
+              onClick={(e) => handleClick(e, tabChild.props.label)}
+            >
+              {tabChild.props.label}
+            </Link>
+          );
+        })}
       </div>
 
       <div className="py-4 transition-all duration-500 ease-in-out">
-        {children.map((child) => {
-          if (child.props.label === activeTab) {
-            return <div key={child.props.label}>{child.props.children}</div>;
+        {children.map((child: ReactNode) => {
+          const tabChild = child as TabChild;
+          if (tabChild.props.label === activeTab) {
+            return <div key={tabChild.props.label}>{tabChild.props.children}</div>;
           }
           return null;
         })}
@@ -43,11 +60,19 @@ const Tabs = ({ children }) => {
     </>
   );
 };
-const Tab = ({ label, children }) => {
+
+// Define the type for the Tab component's props
+type TabProps = {
+  label: string;
+  children: ReactNode;
+};
+
+const Tab = ({ label, children }: TabProps) => {
   return (
-    <div label={label} className="hidden">
+    <div className="hidden">
       {children}
     </div>
   );
 };
+
 export { Tabs, Tab };

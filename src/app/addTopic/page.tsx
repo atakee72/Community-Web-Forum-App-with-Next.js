@@ -12,6 +12,7 @@ export default function AddTopic() {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const apiUrl = process.env.API_URL;
 
     if (!title || !body) {
       alert("Empty title or topic body are not allowed!");
@@ -19,7 +20,7 @@ export default function AddTopic() {
     }
 
     try {
-      const res = await fetch("/api/topics", {
+      const res = await fetch(`${apiUrl}/api/topics`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",

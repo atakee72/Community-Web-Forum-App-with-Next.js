@@ -4,7 +4,7 @@ const getTopicById = async (id: string) => {
   const apiUrl = process.env.API_URL;
 
   try {
-    const res = await fetch(`${apiUrl}api/topics/${id}`, {
+    const res = await fetch(`${apiUrl}/api/topics/${id}`, {
       cache: "no-store",
     });
 

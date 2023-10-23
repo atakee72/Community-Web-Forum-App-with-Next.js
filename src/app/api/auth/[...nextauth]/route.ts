@@ -82,7 +82,7 @@ export const authOptions: {
           if (!userExists) {
             const apiUrl = process.env.API_URL;
 
-            const res = await fetch(`${apiUrl}api/user`, {
+            const res = await fetch(`${apiUrl}/api/user`, {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",

@@ -13,7 +13,7 @@ const getTopics = async (): Promise<{ topics: Topic[] }> => {
   const apiUrl = process.env.API_URL;
 
   try {
-    const res = await fetch(`${apiUrl}api/topics`, {
+    const res = await fetch(`${apiUrl}/api/topics`, {
       cache: "no-store",
     });
     if (!res.ok) {
