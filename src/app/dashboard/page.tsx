@@ -28,12 +28,7 @@ export default function Dashboard() {
                 {tab.component === "RecommendationsList" && (
                   <RecommendationsList />
                 )}
-                {
-                  tab.component === "TopicsList" && (
-                    <div>TopicsList will come here</div>
-                  )
-                  // <TopicsList />
-                }
+                {tab.component === "TopicsList" && <TopicsList />}
               </div>
             </div>
           </Tab>
