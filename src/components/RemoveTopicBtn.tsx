@@ -26,7 +26,11 @@ export default function RemoveTopicBtn({ id }: RemoveTopicBtnProps) {
     }
   };
   return (
-    <button onClick={removeTopic} className="text-red-400 ">
+    <button
+      disabled
+      onClick={removeTopic}
+      className="text-red-400 cursor-not-allowed "
+    >
       <HiOutlineTrash size={24} />
     </button>
   );

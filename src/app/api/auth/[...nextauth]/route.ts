@@ -15,7 +15,7 @@ const googleClientSecret = process.env.GOOGLE_CLIENT_SECRET || "";
 export const authOptions: {
   providers: (CredentialsConfig<{}> | OAuthConfig<GoogleProfile>)[];
   session: {
-    strategy: SessionStrategy; // Corrected to SessionStrategy
+    strategy: SessionStrategy;
   };
   secret: string | undefined;
   pages: { signIn: string | undefined };
