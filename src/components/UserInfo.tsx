@@ -10,9 +10,9 @@ export default function UserInfo() {
   if (typeof userImage === "string") {
     return (
       <div className=" grid text-center">
-        <div className="flex flex-col items-center gap-2">
+        <div className="flex flex-col items-center gap-2 relative left-96">
           <Image
-            className="rounded-full"
+            className="rounded-full "
             src={userImage}
             height={60}
             width={60}

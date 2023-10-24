@@ -12,20 +12,20 @@ function Navbar(): React.JSX.Element {
   // const userImage = session?.user?.image;
 
   return (
-    <div className=" flex items-center fixed top-0 w-full z-50 bg-[#814256] backdrop-blur-large shadow-md">
+    <div className=" flex items-center fixed top-0 w-full z-50 bg-[#814256] backdrop-blur-large shadow-md h-32">
       <div>
         <Link href={"/"}>
           <Image
             style={{ borderRadius: "30% 70% 70% 30% / 30% 30% 70% 70% " }}
-            className="rounded-s-3xl m-1 p-1"
+            className="rounded-s-3xl m-1 p-1 absolute left-10"
             src="/Beige_und_Grau.png"
-            width={100}
-            height={100}
+            width={200}
+            height={200}
             alt="logo"
           />
         </Link>
       </div>
-      <nav className="w-full max-h-full">
+      <nav className="w-full min-h-full flex justify-evenly gap-7">
         {session && (
           <ul className="flex justify-between items-center bg-[#814256] px-5 ">
             <li className="ornek">
