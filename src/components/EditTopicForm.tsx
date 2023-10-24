@@ -39,25 +39,28 @@ export default function EditTopicForm({ id, title, body }: EditTopicFormProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-3 ">
-      <input
-        onChange={(e) => setNewTitle(e.target.value)}
-        value={newTitle}
-        className="border border-[#eccc6e] px-8 py-2"
-        placeholder="Topic title"
-      />
-      <textarea
-        onChange={(e) => setNewBody(e.target.value)}
-        value={newBody}
-        className="border border-[#eccc6e] px-8 py-2"
-        placeholder="Topic description"
-      />
-      <button
-        type="submit"
-        className="bg-[#4b9aaa] text-white font-bold py-3 px-6 w-fit"
-      >
-        Update topic
-      </button>
-    </form>
+    <div className="p-16 max-w-3xl mx-auto text-[#814256] min-h-screen">
+      <h1 className="text-3xl font-bold">Edit your contribution</h1>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-3 ">
+        <input
+          onChange={(e) => setNewTitle(e.target.value)}
+          value={newTitle}
+          className="border border-[#eccc6e] px-8 py-2"
+          placeholder="Topic title"
+        />
+        <textarea
+          onChange={(e) => setNewBody(e.target.value)}
+          value={newBody}
+          className="border border-[#eccc6e] px-8 py-2"
+          placeholder="Topic description"
+        />
+        <button
+          type="submit"
+          className="bg-[#4b9aaa] text-white font-bold py-3 px-6 w-fit"
+        >
+          Update
+        </button>
+      </form>
+    </div>
   );
 }
