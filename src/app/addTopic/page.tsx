@@ -5,38 +5,38 @@ import { useRouter } from "next/navigation";
 import React from "react";
 
 export default function AddTopic() {
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
+    const [title, setTitle] = useState("");
+    const [body, setBody] = useState("");
 
-  const router = useRouter();
+    const router = useRouter();
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const apiUrl = process.env.API_URL;
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      const apiUrl = process.env.API_URL;
 
-    if (!title || !body) {
-      alert("Empty title or topic body are not allowed!");
-      return;
-    }
-
-    try {
-      const res = await fetch(`${apiUrl}/api/topics`, {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({ title, body }),
-      });
-      if (res.ok) {
-        router.push("/");
-        router.refresh();
-      } else {
-        throw new Error("Failed to create a topic!");
+      if (!title || !body) {
+        alert("Empty title or topic body are not allowed!");
+        return;
       }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+
+      try {
+        const res = await fetch("/api/topics", {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify({ title, body }),
+        });
+        if (res.ok) {
+          router.push("/");
+          router.refresh();
+        } else {
+          throw new Error("Failed to create a topic!");
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-3 ">
