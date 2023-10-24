@@ -27,7 +27,7 @@ const Tabs = ({ children }: TabsProps) => {
 
   return (
     <>
-      <div className="tabs flex justify-start items-center bg-[#4995A5] mx-16 mt-7 mb-20">
+      <div className="tabs flex justify-start h-16 items-end bg-[#4995A5] mx-16 mt-7 mb-20">
         {children.map((child: ReactNode) => {
           const tabChild = child as TabChild;
           return (
@@ -52,7 +52,9 @@ const Tabs = ({ children }: TabsProps) => {
         {children.map((child: ReactNode) => {
           const tabChild = child as TabChild;
           if (tabChild.props.label === activeTab) {
-            return <div key={tabChild.props.label}>{tabChild.props.children}</div>;
+            return (
+              <div key={tabChild.props.label}>{tabChild.props.children}</div>
+            );
           }
           return null;
         })}
