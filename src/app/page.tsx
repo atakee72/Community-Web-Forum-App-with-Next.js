@@ -21,7 +21,7 @@ const Home: React.FC<HomeProps> = async () => {
   }
 
   return (
-    <div className="flex flex-col-reverse justify-start gap-5 items-center">
+    <div className="flex flex-col-reverse justify-end gap-5 items-center min-h-screen p-16">
       <div>
         <SignInBtn />
       </div>

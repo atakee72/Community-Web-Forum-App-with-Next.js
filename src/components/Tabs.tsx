@@ -37,9 +37,9 @@ const Tabs = ({ children }: TabsProps) => {
               scroll={false}
               className={`${
                 activeTab === tabChild.props.label
-                  ? "border-b-4 border-[#eccc6e]"
+                  ? "border-b-3 border-[#eccc6e] h-9"
                   : ""
-              } tab tab-sm tab-lifted hover:bg-[#b4b0a6] bg-[#C9C4B9] p-2 mt-3 text-[#814256] pb-5 border-[#814256] m-1 transition-all duration-500 ease-in-out`}
+              } tab tab-sm tab-lifted hover:bg-[#b4b0a6] bg-[#C9C4B9] p-2 mt-3 text-[#814256] pb-5 border-[#814256] m-1`}
               onClick={(e) => handleClick(e, tabChild.props.label)}
             >
               {tabChild.props.label}
