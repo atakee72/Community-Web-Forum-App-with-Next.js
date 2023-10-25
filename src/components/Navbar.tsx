@@ -6,10 +6,12 @@ import { signOut } from "next-auth/react";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 import UserInfo from "./UserInfo";
+import { useRouter } from "next/navigation";
 
 function Navbar(): React.JSX.Element {
   const { data: session } = useSession();
   // const userImage = session?.user?.image;
+  const router = useRouter();
 
   return (
     <div className=" flex items-center fixed top-0 w-full z-50 bg-[#814256] backdrop-blur-large shadow-md h-32">
@@ -96,7 +98,12 @@ function Navbar(): React.JSX.Element {
             </div>
 
             <button
-              onClick={() => signOut()}
+              onClick={() => {
+                signOut();
+                alert("You have logged out!");
+                router.refresh();
+                router.push("/");
+              }}
               className="btn btn-outline btn-error font-mono border-t-4 border-t-[#4b9aaa] text-[#4b9aaa] px-5"
             >
               Logout
