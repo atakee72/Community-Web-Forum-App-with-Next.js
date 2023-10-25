@@ -10,7 +10,12 @@ async function Register() {
     redirect("/dashboard");
   }
 
-  return <RegisterForm />;
+  return (
+    <div className="p-16 max-w-3xl mx-auto text-[#814256] min-h-screen">
+      <RegisterForm />
+    </div>
+  );
+
 }
 
 export default Register;

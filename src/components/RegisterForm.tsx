@@ -63,9 +63,9 @@ export default function RegisterForm() {
   };
 
   return (
-    <div className="grid place-items-center h-screen">
+    <div className="grid place-items-start justify-center h-screen">
       <div className="shadow-lg p-5 rounded-lg border-t-4 border-[#4b9aaa] ">
-        <h1 className="text-xl font-bold my-4 ">Register</h1>
+        <h1 className="text-xl font-bold my-4 ">Sign up</h1>
         <form onSubmit={handleSubmit} className="flex flex-col gap-3">
           <input
             onChange={(e) => setName(e.target.value)}
@@ -83,7 +83,7 @@ export default function RegisterForm() {
             placeholder="Password"
           />
           <button className="bg-[#4b9aaa] text-white font-bold py-2 px-6 cursor-pointer">
-            Register
+            Sign up
           </button>
           {error && (
             <div className="text-red-500 w-fit text-xs mt-2 font-semibold ">

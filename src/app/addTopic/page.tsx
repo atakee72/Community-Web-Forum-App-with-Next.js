@@ -39,25 +39,28 @@ export default function AddTopic() {
     };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-3 ">
-      <input
-        onChange={(e) => setTitle(e.target.value)}
-        value={title}
-        className="border border-[#eccc6e] px-8 py-2"
-        placeholder="Topic title"
-      />
-      <textarea
-        onChange={(e) => setBody(e.target.value)}
-        value={body}
-        className="border border-[#eccc6e] px-8 py-2"
-        placeholder="Topic body"
-      />
-      <button
-        type="submit"
-        className="bg-[#4b9aaa] text-white font-bold py-3 px-6 w-fit"
-      >
-        Add topic
-      </button>
-    </form>
+    <div className="p-16 max-w-3xl mx-auto text-[#814256] min-h-screen">
+      <h1 className="text-2xl font-bold">Add a topic to discuss</h1>
+      <form onSubmit={handleSubmit} className="flex flex-col gap-3 ">
+        <input
+          onChange={(e) => setTitle(e.target.value)}
+          value={title}
+          className="border border-[#eccc6e] px-8 py-2"
+          placeholder="Topic title"
+        />
+        <textarea
+          onChange={(e) => setBody(e.target.value)}
+          value={body}
+          className="border border-[#eccc6e] px-8 py-2"
+          placeholder="Topic body"
+        />
+        <button
+          type="submit"
+          className="bg-[#4b9aaa] text-white font-bold py-3 px-6 w-fit"
+        >
+          Add topic
+        </button>
+      </form>
+    </div>
   );
 }

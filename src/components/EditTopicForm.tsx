@@ -40,7 +40,7 @@ export default function EditTopicForm({ id, title, body }: EditTopicFormProps) {
 
   return (
     <div className="p-16 max-w-3xl mx-auto text-[#814256] min-h-screen">
-      <h1 className="text-3xl font-bold">Edit your contribution</h1>
+      <h1 className="text-2xl font-bold">Edit your contribution</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-3 ">
         <input
           onChange={(e) => setNewTitle(e.target.value)}

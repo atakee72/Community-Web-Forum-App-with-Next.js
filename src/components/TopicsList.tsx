@@ -42,8 +42,13 @@ export default async function TopicsList() {
             <div className="mx-3 sm:mx-7 md:mx-10">
               <div className="flex justify-start items-center gap-3 my-6">
                 <RemoveTopicBtn id={t._id} />
-                <Link href={`/editTopic/${t._id}`}>
-                  <HiPencilAlt size={24} />
+                <Link
+                  href={`/editTopic/${t._id}`}
+                  className="flex items-center"
+                >
+                  <button disabled className="cursor-not-allowed">
+                    <HiPencilAlt size={24} />
+                  </button>
                 </Link>
                 <Modal />
               </div>
