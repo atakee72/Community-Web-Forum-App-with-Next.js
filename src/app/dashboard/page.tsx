@@ -15,6 +15,9 @@ export default function Dashboard() {
               <h2 className="text-center text-[#eccc6e] text- text-3xl">
                 {tab.header}
               </h2>
+              <h3 className="text-red-600 text-center ">
+                DALDA ÇALIŞIYORUM ŞU AN!
+              </h3>
               <div className="my-7 ">
                 <Link
                   className="bg-[#814256] text-[#eccc6e] p-2 shadow-inner font-sans rounded-lg w-1/3 py-5 mx-auto grid place-items-center no-underline hover:underline"
