@@ -31,6 +31,8 @@ export default async function TopicsList() {
   const { topics } = await getTopics();
   return (
     <div>
+      {" "}
+      bunu dalda değiştirdim
       {topics.length === 0 ? (
         <div>No topics to display.</div>
       ) : (
