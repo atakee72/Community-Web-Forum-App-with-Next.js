@@ -27,11 +27,11 @@ export default function Dashboard() {
                 </Link>
               </div>
               <div className="grid place-items-start">
+                {tab.component === "TopicsList" && <TopicsList />}
                 {tab.component === "AnnouncementsList" && <AnnouncementsList />}
                 {tab.component === "RecommendationsList" && (
                   <RecommendationsList />
                 )}
-                {tab.component === "TopicsList" && <TopicsList />}
               </div>
             </div>
           </Tab>

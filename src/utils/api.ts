@@ -1,34 +1,34 @@
-export const fetchDataFromApi = async <T>(
-  apiPath: string,
+export const fetchApiData = async (
+  envExtension: string, // the chosen extension of the environment variable, like '...API_URL' etc.
+  endpoint: string,
   options?: RequestInit
-): Promise<{ data: T[] }> => {
-  const apiUrl = process.env.API_URL;
+): Promise<{ data: [] }> => {
+  const baseUrl = process.env[envExtension];
+  if (!baseUrl) {
+    throw new Error(`${envExtension} is not defined in environment variables.`);
+  }
 
-  console.log(`Fetching data from: ${apiUrl}${apiPath}`); // Debug URL
+  const url: string = `${baseUrl}${endpoint}`;
 
   try {
-    const res = await fetch(
-      `${apiUrl}${apiPath}
-    // api/topics
-    `,
-      {
-        ...options,
-        cache: "no-store",
-      }
-    );
-    if (!res.ok) {
-      throw new Error(
-        `Failed to fetch data from ${apiPath} with status: ${res.status}`
-      );
+    const response: Response = await fetch(url, {
+      ...options,
+      cache: "no-store",
+    });
+    if (!response.ok) {
+      throw new Error("Failed to fetch requested data");
     }
 
-    const data = await res.json();
+    const data = await response.json();
+    if (!data) {
+      throw new Error("Failed to parse requested data");
+    }
 
-    console.log("Fetched data:", data); // Debug fetched data
+    console.log(data);
 
-    return { data };
-  } catch (error) {
-    console.error(`Error loading data from ${apiPath}:`, error);
-    return { data: [] };
+    return data;
+  } catch (error: unknown) {
+    console.error("Error loading requested data:", error);
+    throw error;
   }
 };
