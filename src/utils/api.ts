@@ -1,3 +1,5 @@
+import { RequestInit } from "next/dist/server/web/spec-extension/request";
+
 export const fetchApiData = async (
   envExtension: string, // the chosen extension of the environment variable, like '...API_URL' etc.
   endpoint: string,
@@ -24,7 +26,7 @@ export const fetchApiData = async (
       throw new Error("Failed to parse requested data");
     }
 
-    console.log(data);
+    // console.log(data);
 
     return data;
   } catch (error: unknown) {
