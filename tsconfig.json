@@ -26,6 +26,9 @@
       "@/*": ["./src/*"]
     }
   },
+  "globals": {
+    "RequestInit": true
+  },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
