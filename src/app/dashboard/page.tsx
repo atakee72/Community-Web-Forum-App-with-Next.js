@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { Tabs, Tab } from "@/components/Tabs";
 import { collectionTabs } from "@/lib/foraTabsData";
-import AnnouncementsList from "@/components/AnnouncementsList";
-import RecommendationsList from "@/components/RecommendationsList";
+// import AnnouncementsList from "@/components/AnnouncementsList";
+// import RecommendationsList from "@/components/RecommendationsList";
 import TopicsList from "@/components/TopicsList";
 
 export default function Dashboard() {
@@ -27,11 +27,13 @@ export default function Dashboard() {
                 </Link>
               </div>
               <div className="grid place-items-start">
-                {tab.component === "TopicsList" && <TopicsList />}
-                {tab.component === "AnnouncementsList" && <AnnouncementsList />}
-                {tab.component === "RecommendationsList" && (
-                  <RecommendationsList />
-                )}
+                {tab.collectionType === "discussions" && <TopicsList />}
+                {tab.collectionType === "announcements" &&
+                  // <AnnouncementsList />
+                  "SOmething"}
+                {tab.collectionType === "recommendations" &&
+                  // <RecommendationsList />
+                  "something to recommend"}
               </div>
             </div>
           </Tab>

@@ -63,7 +63,6 @@ const Tabs = ({ children }: TabsProps) => {
   );
 };
 
-// Define the type for the Tab component's props
 type TabProps = {
   label: string;
   children: ReactNode;

@@ -3,7 +3,6 @@ import RemoveTopicBtn from "./RemoveTopicBtn";
 import Link from "next/link";
 import { HiPencilAlt } from "react-icons/hi";
 import Modal from "./Modal";
-import { fetchApiData } from "@/utils/api";
 
 interface Topic {
   _id: string;
@@ -11,8 +10,26 @@ interface Topic {
   body: string;
 }
 
+const getTopics = async (): Promise<{ topics: Topic[] }> => {
+  const apiUrl = process.env.API_URL;
+
+  try {
+    const res = await fetch(`${apiUrl}/api/topics`, {
+      cache: "no-store",
+    });
+    if (!res.ok) {
+      throw new Error("Failed to fetch topics");
+    }
+
+    return res.json();
+  } catch (error) {
+    console.log("Error loading topics:", error);
+    return { topics: [] };
+  }
+};
+
 const TopicsList = async () => {
-  const { topics } = await fetchApiData("API_URL", "/api/topics");
+  const { topics } = await getTopics();
   return (
     <div>
       {topics.length === 0 ? (
